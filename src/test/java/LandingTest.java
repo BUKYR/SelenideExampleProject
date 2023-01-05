@@ -1,7 +1,10 @@
 import LandingTestData.TestBase;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import LandingTestData.LandingTestData;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 
 public class LandingTest extends TestBase {
@@ -15,7 +18,7 @@ public class LandingTest extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка перехода на YouTube по кнопке в хедере")
+    @DisplayName("Проверка перехода на VK.COM по кнопке в хедере")
     void socialNetworkTest() {
         LandingTestData.socialNetworkTestVK();
     }
@@ -31,5 +34,13 @@ public class LandingTest extends TestBase {
     void hamburgBoxMenuTest() {
         LandingTestData.humburgTest();
 
+    }
+
+    @Test
+    @DisplayName("Проверка локализации")
+    void testLocale() {
+        LandingTestData
+                .testLocaleRU()
+                .testLocaleEN();
     }
 }

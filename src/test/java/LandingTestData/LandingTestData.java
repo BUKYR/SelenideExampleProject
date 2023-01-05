@@ -83,6 +83,24 @@ public class LandingTestData {
         return this;
     }
 
+    public LandingTestData testLocaleRU() {
+        step("Выбор локали RU", () -> {
+            open();
+        });
+        step("Проверка соответсвия элементов хедера выбранной локали", () -> {
+            $("#masthead").$(byText(companyText)).shouldBe(Condition.visible);
+        });
+        return this;
+    }
+    public LandingTestData testLocaleEN() {
+        step("Выбор локали EN", () -> {
+            Selenide.open("/en");
+        });
+        step("Проверка соответсвия элементов хедера выбранной локали", () -> {
+            $("#masthead").$(byText(companyENText)).shouldBe(Condition.visible);
+        });
+        return this;
+    }
 
 }
 
