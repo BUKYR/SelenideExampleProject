@@ -6,6 +6,7 @@ import com.codeborne.selenide.Selenide;
 
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.webdriver;
@@ -19,16 +20,21 @@ public class LandingTestData {
         Selenide.open("/");
     }
 
-    public LandingTestData testLocale(String locale, String elementText) {
+    public LandingTestData testEmail() {
+        step("Открытие главной страницы", () -> {
+            open();
+        });
+        step("Переход на страницу 'Блог'", () -> {
+            $(headerWrapper).$(byText("Медиа")).hover();
+            $(byText("Блог")).click();
+        });
+        step("Ввод неправильного email и проверка валидации", () -> {
+            $("#s2email").setValue("test@test.com");
+            $("[name=subscribe]").click();
+            $(".s2_error").shouldHave(text("Извините, но это не похоже на email"));
 
-      step("Выбор локали", () -> {
-                    Selenide.open(locale);
-                });
-        step("Проверка соответсвия элементов хедера выбранной локали", () -> {
-                    $(masthead).$(byText(elementText)).shouldBe(Condition.visible);
-                });
-        sleep(1000);
-        Selenide.closeWebDriver();
+        });
+
         return this;
     }
 
