@@ -1,10 +1,14 @@
+package testData;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.url;
+import static testData.TestSource.*;
 
 public class TestData {
 
@@ -19,4 +23,15 @@ public class TestData {
     public void open() {
         Selenide.open("/");
     }
+
+    public TestData socialNetworkTestYT() {
+        open();
+        $(headerWrapper).$(topBar).$(socTW).click();
+        switchTo().window(1);
+        webdriver().shouldHave(url(youtubeUrl));
+
+        return this;
+    }
 }
+
+
