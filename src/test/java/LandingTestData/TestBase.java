@@ -9,11 +9,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
+
     @BeforeAll
     public static void testBaseUrlConfiguration() {
-        Configuration.baseUrl = "https://rit-it.com/";
-        Configuration.browserSize = "1920x1080";
         Configuration.pageLoadTimeout = 50000;
+        Configuration.baseUrl = System.getProperty("baseUrl","https://rit-it.com/");
+        Configuration.browserSize = System.getProperty("resolution", "1920x1080");
+        Configuration.remote = System.getProperty("selenoideURL", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
     }
 
     @BeforeEach
