@@ -1,10 +1,12 @@
+import LandingTestData.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import LandingTestData.LandingTestData;
 
-public class LandingTest extends LandingTestData {
+
+public class LandingTest extends TestBase {
 
     LandingTestData LandingTestData = new LandingTestData();
 

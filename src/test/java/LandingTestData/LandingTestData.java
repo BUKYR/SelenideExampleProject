@@ -22,29 +22,6 @@ import static io.qameta.allure.Allure.step;
 
 public class LandingTestData {
 
-
-    @BeforeAll
-    public static void testBaseUrlConfiguration() {
-        Configuration.baseUrl = "https://rit-it.com/";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadTimeout = 50000;
-    }
-
-    @BeforeEach
-    void addListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void addAttachments() {
-            Attach.screenshotAs("Last screenshot");
-            Attach.pageSource();
-            Attach.browserConsoleLogs();
-            Attach.addVideo();
-
-    }
-
-
     public void open() {
         Selenide.open("/");
     }
