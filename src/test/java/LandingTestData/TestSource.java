@@ -1,4 +1,4 @@
-package testData;
+package LandingTestData;
 
 public class TestSource {
 
