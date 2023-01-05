@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
@@ -32,6 +33,15 @@ public class TestData {
 
         return this;
     }
+
+    public TestData testLocale(String locale, String elementText) {
+            Selenide.open(locale);
+            $(masthead).$(byText(elementText)).shouldBe(Condition.visible);
+        return this;
+    }
+
+
+
 }
 
 
