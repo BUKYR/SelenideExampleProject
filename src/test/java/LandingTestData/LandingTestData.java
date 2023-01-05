@@ -20,12 +20,15 @@ public class LandingTestData {
     }
 
     public LandingTestData testLocale(String locale, String elementText) {
-        step("Выбор локали", () -> {
+
+      step("Выбор локали", () -> {
                     Selenide.open(locale);
                 });
         step("Проверка соответсвия элементов хедера выбранной локали", () -> {
                     $(masthead).$(byText(elementText)).shouldBe(Condition.visible);
                 });
+        sleep(1000);
+        Selenide.closeWebDriver();
         return this;
     }
 
@@ -41,6 +44,7 @@ public class LandingTestData {
                     switchTo().window(1);
                     webdriver().shouldHave(url(youtubeUrl));
         });
+
         return this;
     }
 
