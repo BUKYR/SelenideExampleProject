@@ -17,7 +17,7 @@ public class LandingTest extends TestBase {
     @Test
     @DisplayName("Проверка перехода на YouTube по кнопке в хедере")
     void socialNetworkTest() {
-        LandingTestData.socialNetworkTestYT();
+        LandingTestData.socialNetworkTestVK();
     }
 
     @Test

@@ -17,7 +17,9 @@ import static io.qameta.allure.Allure.step;
 public class LandingTestData {
 
     public void open() {
-        Selenide.open("/");
+        Selenide.open("/en");
+        $(".lang-item-ru").click();
+
     }
 
     public LandingTestData testEmail() {
@@ -25,13 +27,13 @@ public class LandingTestData {
             open();
         });
         step("Переход на страницу 'Блог'", () -> {
-            $(headerWrapper).$(byText("Медиа")).hover();
-            $(byText("Блог")).click();
+            $(headerWrapper).$(byText(mediaText)).hover();
+            $(byText(blogText)).click();
         });
         step("Ввод неправильного email и проверка валидации", () -> {
-            $("#s2email").setValue("test@test.com");
-            $("[name=subscribe]").click();
-            $(".s2_error").shouldHave(text("Извините, но это не похоже на email"));
+            $(s2email).setValue(incorrectMail);
+            $(subscribeButton).click();
+            $(s2error).shouldHave(text(errorText));
 
         });
 
@@ -39,16 +41,16 @@ public class LandingTestData {
     }
 
 
-    public LandingTestData socialNetworkTestYT() {
+    public LandingTestData socialNetworkTestVK() {
         step("Открытие главной страницы", () -> {
                     open();
                 });
-        step("Поиск и клик по кнопке YouTube в хедере", () -> {
-                    $(headerWrapper).$(topBar).$(socTW).click();
+        step("Поиск и клик по кнопке VK в хедере", () -> {
+                    $(headerWrapper).$(topBar).$(socVK).click();
                 });
         step("Переход на новую вкладку и проверка урла", () -> {
                     switchTo().window(1);
-                    webdriver().shouldHave(url(youtubeUrl));
+                    webdriver().shouldHave(url(vkUrl));
         });
 
         return this;
