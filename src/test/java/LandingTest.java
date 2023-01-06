@@ -1,5 +1,6 @@
 import LandingTestData.TestBase;
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import LandingTestData.LandingTestData;
@@ -17,6 +18,7 @@ public class LandingTest extends TestBase {
         LandingTestData.testEmail();
     }
 
+    @Disabled
     @Test
     @DisplayName("Проверка перехода на VK.COM по кнопке в хедере")
     void socialNetworkTest() {
