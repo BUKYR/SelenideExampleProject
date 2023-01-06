@@ -15,7 +15,7 @@ public class TestBase {
 
     @BeforeAll
     public static void testBaseUrlConfiguration() {
-        //Configuration.pageLoadTimeout = 50000;
+        Configuration.pageLoadTimeout = 50000;
         //Configuration.timeout = 50000;
         Configuration.baseUrl = System.getProperty("baseUrl","https://rit-it.com");
         Configuration.browserSize = System.getProperty("resolution", "1920x1080");
