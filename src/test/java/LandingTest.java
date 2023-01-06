@@ -33,7 +33,6 @@ public class LandingTest extends TestBase {
     @DisplayName("Проверка гамбергер-меню")
     void hamburgBoxMenuTest() {
         LandingTestData.humburgTest();
-
     }
 
     @Test
