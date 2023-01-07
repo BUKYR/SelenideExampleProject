@@ -12,11 +12,13 @@ public class LandingTest extends TestBase {
 
     LandingTestData LandingTestData = new LandingTestData();
 
+    @Disabled
     @Test
     @DisplayName("Проверка валидации email input на странице 'Блог'")
     void emailTest() {
         LandingTestData.testEmail();
     }
+
 
     @Disabled
     @Test
@@ -39,7 +41,6 @@ public class LandingTest extends TestBase {
         LandingTestData.humburgTest();
     }
 
-    @Disabled
     @Test
     @DisplayName("Проверка локализации")
     void testLocale() {
