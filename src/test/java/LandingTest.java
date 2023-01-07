@@ -23,7 +23,7 @@ public class LandingTest extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка хедер меню и раздела проекты")
+    @DisplayName("Проверка раздела 'Проекты' в хедер меню")
     void listOfProjectTest() {
         LandingTestData.projectListTest();
     }
