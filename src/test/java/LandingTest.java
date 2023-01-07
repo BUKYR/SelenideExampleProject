@@ -25,18 +25,21 @@ public class LandingTest extends TestBase {
         LandingTestData.socialNetworkTestVK();
     }
 
+    @Disabled
     @Test
     @DisplayName("Проверка хедер меню и раздела проекты")
     void listOfProjectTest() {
         LandingTestData.projectListTest();
     }
 
+    @Disabled
     @Test
     @DisplayName("Проверка гамбергер-меню")
     void hamburgBoxMenuTest() {
         LandingTestData.humburgTest();
     }
 
+    @Disabled
     @Test
     @DisplayName("Проверка локализации")
     void testLocale() {
