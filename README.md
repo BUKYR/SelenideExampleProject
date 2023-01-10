@@ -1,7 +1,7 @@
 <h1 align="center">Demo project UI automation for <a href="https://rit-it.com/en/ ">rit-it.com</a></h1>
 
 <p align="center">
-<img title="mainPage" src="images/screens/mainPage.png">
+<img src="images/screens/mainPage.png" width="200" height="100">
 </p>
 
 <h3>Содержание:</h3>
@@ -12,6 +12,7 @@
 2. [Запуск тестов](#testLaunch)
     1. [Локальный](#localLaunch)
     2. [Удаленный (Selenoide)](#remoteLaunch)
+    3. [Запуск из Jenkins](#jenkinsLaunch)
 3. [Отчетность](#report)
    1. [Allure](#allureReport)
    2. [Telegram](#telegramReport)
@@ -54,7 +55,7 @@
 ```bash
 gradle clean test
 ```
-<h4 id="remoteLaunch">Удаленный запуск из Jenkins на Selenoide </h4>
+<h4 id="remoteLaunch">Удаленный запуск на Selenoide </h4>
 
 ```bash
 clean 
@@ -73,3 +74,7 @@ test
 ><code>${RESOLUTION}"</code>  - задает разрешение браузера <br />
 ><code>${BROWSER}"</code> - выбор браузер <br />
 ><code>${BROWSER_VERSION}"</code> - выбор версии браузера <br /> 
+
+<h4 id="jenkinsLaunch">Запуск из <a href="https://jenkins.autotests.cloud/job/C16-billyn1337-LabWork/">Jenkins</a></h4>
+
+
