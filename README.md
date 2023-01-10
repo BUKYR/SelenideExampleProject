@@ -1,4 +1,4 @@
-<h1 align="center">Demo project UI automation for <a href="https://rit-it.com/en/ ">rit-it.com</a></h1>
+<h1 align="center">Демопроект UI автоматизации на примере <a href="https://rit-it.com/en/ ">rit-it.com</a></h1>
 
 <p align="center">
 <img src="images/screens/mainPage.png">
@@ -11,8 +11,7 @@
 1. [Список проверок](#listOFTest)
 2. [Запуск тестов](#testLaunch)
     1. [Локальный](#localLaunch)
-    2. [Удаленный (Selenoide)](#remoteLaunch)
-    3. [Запуск из Jenkins](#jenkinsLaunch)
+    2. [Удаленный (Jenkins + Selenoide)](#remoteLaunch)
 3. [Отчетность](#report)
    1. [Allure](#allureReport)
    2. [Telegram](#telegramReport)
@@ -52,11 +51,23 @@
 
 <h4 id="localLaunch">Локальный запуск</h4>
 
+Запуск тестов:
 ```bash
 gradle clean test
 ```
-<h4 id="remoteLaunch">Удаленный запуск на Selenoide </h4>
+Получение отчета:
+```bash
+gradle allureServe
+```
+<h4 id="remoteLaunch">Удаленный запуск из Jenkins на Selenoide </h4>
+1. Выбираем сборку с параметрами
+   <img src="images/screens/withParam.png">
+2. Задаем параметры и запускаем
+   <img src="images/screens/configPNG.png">
+3. Смотрим отчет
+   <img src="images/screens/reportPNG.png">
 
+Таска для запуска:
 ```bash
 clean 
 test
@@ -66,7 +77,7 @@ test
 -D"browser=${BROWSER}" 
 -D"browserVersion=${BROWSER_VERSION}" 
 ```
-<h4>Расшифровка</h4>
+Расшифровка
 ><code>clean</code> - удаление следов прошлых запусокв <br />
 ><code>test</code> - запуск всех тестов<br />
 ><code>${BASED_URL}"</code> - задает URL стенда<br />
@@ -75,6 +86,7 @@ test
 ><code>${BROWSER}"</code> - выбор браузер <br />
 ><code>${BROWSER_VERSION}"</code> - выбор версии браузера <br /> 
 
-<h4 id="jenkinsLaunch">Запуск из <a href="https://jenkins.autotests.cloud/job/C16-billyn1337-LabWork/">Jenkins</a></h4>
+
+
 
 
