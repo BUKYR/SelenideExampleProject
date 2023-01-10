@@ -7,7 +7,7 @@
 <h3>Содержание:</h3>
 <hr>
 
-0. [Технологии](#Технологии)
+0. [Технологии](#tech)
 1. [Список проверок](#Список проверок) 
 2. [Запуск тестов](#Запуск тестов) 
     1. [Локальный](#localLaunch)
@@ -17,7 +17,7 @@
    2. [Telegram](#telegramReport)
 
 
-<h3>Технологии</h3>
+<h3 id="tech">Технологии</h3>
 <hr>
 <p align="center">
 <code><a href="https://www.java.com/"><img src="images/ico/Java.svg" width="50" height="50"  alt="Java"/></a></code>
@@ -37,22 +37,23 @@
 - Запускается в <code><strong>Jenkins</strong></code> и <code><strong>Selenoide</strong></code> <br />
 - Отчитывается в <code><strong>Allure</strong></code> и <code><strong>Telegram</strong></code> <br />
 
-<h3>Список проверок<a name="#listOfTest"></a></h3>
+<h3 id="listOFTest">Список проверок</h3>
 <hr>
-- [x] Проверка смены локализации (Ru, En)
-- [x] Проверка валидации input полей на примере поля e-mail
-- [x] Проверка ссылок на социальные сети на примере VK
-- [x] Проверка Hamburger Menu
-- [x] Проверка Header Menu
+<input type="checkbox" checked="checked" /> Проверка смены локализации (Ru, En) <br />
+<input type="checkbox" checked="checked" /> Проверка валидации input полей на примере поля e-mail <br />
+<input type="checkbox" checked="checked" /> Проверка ссылок на социальные сети на примере VK <br />
+<input type="checkbox" checked="checked" /> Проверка Hamburger Menu <br />
+<input type="checkbox" checked="checked" /> Проверка Header Menu <br />
 
-<h3>Запуск тестов<a name="#testLaunch"></a></h3>
-<hr>
-<h3>Локальный запуск всех тестов<a name="localLaunch"></a></h3>
-   
+<h3 id="testLaunch">Запуск тестов</h3>
+<hr />
+
+<h4 id="localLaunch">Локальный запуск</h4>
+
 ```bash
 gradle clean test
 ```
-<h3>Удаленный запуск из Jenkins на Selenoide <a name="localLaunch"></a></h3>
+<h4 id="remoteLaunch">Удаленный запуск из Jenkins на Selenoide </h4>
 
 ```bash
 clean 
