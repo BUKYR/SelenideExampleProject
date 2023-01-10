@@ -60,14 +60,12 @@ gradle clean test
 gradle allureServe
 ```
 <h4 id="remoteLaunch">Удаленный запуск из Jenkins на Selenoide </h4>
-1. Выбираем сборку с параметрами
-   <img src="images/screens/withParam.png">
-2. Задаем параметры и запускаем
-   <img src="images/screens/configPNG.png">
-3. Смотрим отчет
-   <img src="images/screens/reportPNG.png">
 
-Таска для запуска:
+>Параметризированная джоба в Jenkins со статистикой сборок
+>
+<img src="images/screens/jenkins.png"/>
+
+Таска для запуска в Jenkins:
 ```bash
 clean 
 test
@@ -78,7 +76,7 @@ test
 -D"browserVersion=${BROWSER_VERSION}" 
 ```
 Расшифровка
-><code>clean</code> - удаление следов прошлых запусокв <br />
+><code>clean</code> - удаление следов прошлых запусков <br />
 ><code>test</code> - запуск всех тестов<br />
 ><code>${BASED_URL}"</code> - задает URL стенда<br />
 ><code>${SELENOIDE_URL}"</code> - задает URL селенойда <br />
@@ -86,6 +84,20 @@ test
 ><code>${BROWSER}"</code> - выбор браузер <br />
 ><code>${BROWSER_VERSION}"</code> - выбор версии браузера <br /> 
 
+
+<h3 id="report">Отчетность</h3>
+<hr />
+
+<h4 id="allureReport">Allure</h4>
+
+>Аллюр отчет с подробными аннотациями шагов теста и вложениями
+> 
+<img src="images/screens/allure.png"/>
+
+<h4 id="telegramReport">Telegram</h4>
+
+>Уведомление в Telegram с помощью Telegram API о завершенных сборках с сылкой на Allure-отчет
+> 
 
 
 
