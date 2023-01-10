@@ -5,7 +5,7 @@
 </p>
 
 <h3>Содержание:</h3>
-____
+<hr>
 
 0. [Технологии](#Технологии)
 1. [Список проверок](#Список проверок) 
@@ -17,8 +17,8 @@ ____
    2. [Telegram](#telegramReport)
 
 
-<h3>Технологии<a name="#tech"></a></h3>
-____
+<h3>Технологии</h3>
+<hr>
 <p align="center">
 <code><a href="https://www.java.com/"><img src="images/ico/Java.svg" width="50" height="50"  alt="Java"/></a></code>
 <code><a href="https://junit.org/junit5/"><img src="images/ico/Junit5.svg" width="50" height="50"  alt="JUnit 5"/></a></code>
@@ -38,7 +38,7 @@ ____
 - Отчитывается в <code><strong>Allure</strong></code> и <code><strong>Telegram</strong></code> <br />
 
 <h3>Список проверок<a name="#listOfTest"></a></h3>
-____
+<hr>
 - [x] Проверка смены локализации (Ru, En)
 - [x] Проверка валидации input полей на примере поля e-mail
 - [x] Проверка ссылок на социальные сети на примере VK
@@ -46,9 +46,9 @@ ____
 - [x] Проверка Header Menu
 
 <h3>Запуск тестов<a name="#testLaunch"></a></h3>
-____
+<hr>
 <h3>Локальный запуск всех тестов<a name="localLaunch"></a></h3>
-
+   
 ```bash
 gradle clean test
 ```
