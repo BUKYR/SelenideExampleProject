@@ -5,7 +5,7 @@
 </p>
 
 <h3>Содержание:</h3>
-<hr>
+
 
 0. [Технологии](#tech)
 1. [Список проверок](#listOFTest)
@@ -39,8 +39,8 @@
 
 <h3 id="listOFTest">Список проверок</h3>
 <hr>
-<input type="checkbox" checked="checked" /> Проверка смены локализации (Ru, En) <br />
-<input type="checkbox" checked="checked" /> Проверка валидации input полей на примере поля e-mail <br />
+- [x] Проверка смены локализации (Ru, En) <br />
+- [x] Проверка валидации input полей на примере поля e-mail <br />
 <input type="checkbox" checked="checked" /> Проверка ссылок на социальные сети на примере VK <br />
 <input type="checkbox" checked="checked" /> Проверка Hamburger Menu <br />
 <input type="checkbox" checked="checked" /> Проверка Header Menu <br />
