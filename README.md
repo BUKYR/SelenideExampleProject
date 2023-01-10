@@ -1,7 +1,7 @@
 <h1 align="center">Demo project UI automation for <a href="https://rit-it.com/en/ ">rit-it.com</a></h1>
 
 <p align="center">
-<img src="images/screens/mainPage.png" width="200" height="100">
+<img src="images/screens/mainPage.png">
 </p>
 
 <h3>Содержание:</h3>
