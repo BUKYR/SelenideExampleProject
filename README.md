@@ -94,10 +94,14 @@ test
 > 
 <img src="images/screens/allure.png"/>
 
+>К каждому прогону записывается видео 
+>
+<img src="images/screens/testGif.gif"/>
 <h4 id="telegramReport">Telegram</h4>
 
 >Уведомление в Telegram с помощью Telegram API о завершенных сборках с сылкой на Allure-отчет
-> 
+>
+<img src="images/screens/telegram.png"/>
 
 
 
