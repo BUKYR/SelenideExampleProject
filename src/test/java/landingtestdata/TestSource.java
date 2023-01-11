@@ -5,7 +5,7 @@ public class TestSource {
     public static String // selectors
         headerWrapper = ".header-wrapper",
         topBar = "#top-bar",
-        socVK = ".soc-insta",
+        //socVK = ".soc-insta",
         wrapper = "#wrapper",
         content = "#content",
         humburgBox = ".hamburg-box",

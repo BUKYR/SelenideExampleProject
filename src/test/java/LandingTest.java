@@ -17,10 +17,15 @@ public class LandingTest extends TestBase {
         LandingTestData.openMainPage().choiсeHeadersItem().setEmailValue().checkValidation();
     }
 
-    @Test
+    @ParameterizedTest
+    @CsvSource(value =  {
+            ".soc-vk, https://www.linkedin.com/company/2710371/admin/",
+            ".soc-insta, https://vk.com/public217753469",
+            ".soc-tw, https://www.youtube.com/channel/UCm-z4T_PfKAOTe-JlSZbaog"
+    })
     @DisplayName("Проверка перехода на VK.COM по кнопке в хедере")
-    void socialNetworkTest() {
-        LandingTestData.openMainPage().clickOnSocialNetwork().clickOnSocialNetwork();
+    void socialNetworkTest(String socialPin, String socialUrl) {
+        LandingTestData.openMainPage().clickOnSocialNetwork(socialPin).checkSocialNetworkURL(socialUrl);
     }
 
     @Test

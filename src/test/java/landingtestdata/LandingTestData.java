@@ -42,16 +42,16 @@ public class LandingTestData {
         return this;
     }
 
-    public LandingTestData clickOnSocialNetwork() {
+    public LandingTestData clickOnSocialNetwork(String socialPin) {
         step("Поиск и клик по кнопке VK в хедере", () -> {
-                    $(headerWrapper).$(topBar).$(socVK).click();
+                    $(headerWrapper).$(topBar).$(socialPin).click();
                 });
         return this;
     }
-        public LandingTestData checkSocialNetworkURL() {
+        public LandingTestData checkSocialNetworkURL(String socialUrl) {
         step("Переход на новую вкладку и проверка урла", () -> {
                     switchTo().window(1);
-                    webdriver().shouldHave(url(vkUrl));
+                    webdriver().shouldHave(url(socialUrl));
         });
         return this;
     }
@@ -84,6 +84,7 @@ public class LandingTestData {
     }
 
     public LandingTestData checkPageLocalization(String localItem, String companyText) {
+
         $(localItem).click();
         $(masthead).$(byText(companyText)).shouldBe(Condition.visible);
        return this;

@@ -2,6 +2,7 @@ package landingtestdata;
 
 import allureconfiguration.Attach;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -16,8 +17,7 @@ public class TestBase {
     public static void testBaseUrlConfiguration() {
         Configuration.pageLoadTimeout = 50000;
         Configuration.baseUrl = System.getProperty("baseUrl","https://rit-it.com");
-        Configuration.browserSize = System.getProperty("resolution", "1920x1080");
-        Configuration.remote = System.getProperty("selenoideURL", "https://user1:1234@selenoid.autotests.cloud") + "/wd/hub";
+        //Configuration.browserSize = System.getProperty("resolution", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
 
@@ -38,5 +38,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        Selenide.closeWebDriver();
     }
 }
