@@ -3,6 +3,7 @@ package landingtestdata;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Step;
 
 
 import static com.codeborne.selenide.Condition.text;
@@ -10,81 +11,76 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.webdriver;
-import static com.codeborne.selenide.WebDriverConditions.url;
+import static com.codeborne.selenide.WebDriverConditions.urlStartingWith;
 import static landingtestdata.TestSource.*;
-import static io.qameta.allure.Allure.step;
+
 
 public class LandingTestData {
 
+    @Step("Открытие главной страницы")
     public LandingTestData openMainPage() {
         Selenide.open("/en");
         $(".lang-item-ru").click();
         return this;
     }
 
+    @Step("Выбор элемента хедере")
     public LandingTestData choiсeHeadersItem() {
-        step("Переход на страницу 'Блог'", () -> {
             $(headerWrapper).$(byText(mediaText)).hover();
             $(byText(blogText)).click();
-        });
+          return this;
+    }
+
+    @Step("Подстановка неверного значения")
+    public LandingTestData setEmailValue() {
+        $(s2email).setValue(incorrectMail);
         return this;
     }
 
-    public LandingTestData setEmailValue() {
-    step("Ввод неправильного email", () -> {
-            $(s2email).setValue(incorrectMail);
-                    });
-        return this;
-    }
+    @Step("Проверка валидации поля")
     public LandingTestData checkValidation() {
     $(subscribeButton).click();
     $(s2error).shouldHave(text(errorText));
         return this;
     }
 
+    @Step("Клик на значек социальной сети")
     public LandingTestData clickOnSocialNetwork(String socialPin) {
-        step("Поиск и клик по кнопке VK в хедере", () -> {
-                    $(headerWrapper).$(topBar).$(socialPin).click();
-                });
-        return this;
+                     $(headerWrapper).$(topBar).$(socialPin).click();
+                     return this;
     }
-        public LandingTestData checkSocialNetworkURL(String socialUrl) {
-        step("Переход на новую вкладку и проверка урла", () -> {
+    @Step("Проверка перехода на страницу социальной сети")
+    public LandingTestData checkSocialNetworkURL(String socialUrl) {
                     switchTo().window(1);
-                    webdriver().shouldHave(url(socialUrl));
-        });
+                    webdriver().shouldHave(urlStartingWith(socialUrl));
+
         return this;
     }
-
+    @Step("") !!!!!!!!!!!!
     public LandingTestData clickOnHeaderMenuElement() {
-       step("Поиск и клик по кнопке 'Проекты' в хедере", () -> {
                     $(headerWrapper).$(byText(companyRUText)).hover();
                     $(byText(projectsText)).click();
-            });
         return this;
     }
+    @Step("Проверка заголовка страницы")
     public LandingTestData checkTitleOfHeaderMenuElement() {
-        step("На странице заголовок 'Проекты' ", () -> {
                     $(wrapper).$(content).shouldHave(text(projectsText));
-            });
         return this;
     }
-
+    @Step("Открытие меню")
     public  LandingTestData clickOnHamburgerMenu() {
-        step("Клик по гамбергер-меню", () -> {
-                    $(humburgBox).click();
-                });
+        $(humburgBox).click();
         return this;
     }
+    @Step("Проверка информации в меню")
     public  LandingTestData checkContactsInHamburger() {
-        step("Проверка наличия раздела 'Контакты' в открывшемся меню", () -> {
-                    $(popupWrapper).$(colInner).$(bigMenuCategory, 2).shouldHave(text(numberText), text(contactsText), text(emailText));
-                 });
+        $(popupWrapper).$(colInner).$(bigMenuCategory, 2).shouldHave(text(numberText), text(contactsText), text(emailText));
+
         return this;
     }
 
+    @Step("Проверка смены локализации")
     public LandingTestData checkPageLocalization(String localItem, String companyText) {
-
         $(localItem).click();
         $(masthead).$(byText(companyText)).shouldBe(Condition.visible);
        return this;

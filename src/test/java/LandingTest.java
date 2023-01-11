@@ -19,9 +19,9 @@ public class LandingTest extends TestBase {
 
     @ParameterizedTest
     @CsvSource(value =  {
-            ".soc-vk, https://www.linkedin.com/company/2710371/admin/",
+            ".soc-vk, https://www.linkedin.com",
             ".soc-insta, https://vk.com/public217753469",
-            ".soc-tw, https://www.youtube.com/channel/UCm-z4T_PfKAOTe-JlSZbaog"
+            ".soc-tw, https://consent.youtube.com"
     })
     @DisplayName("Проверка перехода на VK.COM по кнопке в хедере")
     void socialNetworkTest(String socialPin, String socialUrl) {
