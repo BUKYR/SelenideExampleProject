@@ -1,4 +1,4 @@
-package LandingTestData;
+package landingtestdata;
 
 public class TestSource {
 
@@ -14,7 +14,8 @@ public class TestSource {
         bigMenuCategory = ".big-menu-category",
         s2email = "#s2email",
         s2error = ".s2_error",
-        subscribeButton = "[name=subscribe]";
+        subscribeButton = "[name=subscribe]",
+        masthead = "#masthead";
 
     public static String // urls
         vkUrl = "https://vk.com/public217753469";
@@ -24,12 +25,14 @@ public class TestSource {
 
     public static String // text
         projectsText = "Проекты",
-        companyText = "Компания",
+        companyRUText = "Компания",
         companyENText = "Company",
         contactsText = "Контакты",
         mediaText = "Медиа",
         blogText = "Блог",
-        errorText = "Извините, но это не похоже на email";
+        errorText = "Извините, но это не похоже на email",
+        numberText = "+7 (383) 233-71-73",
+        emailText = "sale@rit-it.com";
 
 
 

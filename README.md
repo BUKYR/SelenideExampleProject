@@ -67,13 +67,14 @@ gradle allureServe
 
 Таска для запуска в Jenkins:
 ```bash
+gradle 
 clean 
 test
--D"baseUrl=${BASED_URL}" 
--D"selenoideURL=${SELENOIDE_URL}" 
--D"resolution=${RESOLUTION}" 
--D"browser=${BROWSER}" 
--D"browserVersion=${BROWSER_VERSION}" 
+-D"baseUrl=https://rit-it.com
+-D"selenoideURL=https://user1:1234@selenoid.autotests.cloud" 
+-D"resolution=1920x1080" 
+-D"browser=chrome" 
+-D"browserVersion=100.0" 
 ```
 Расшифровка
 ><code>clean</code> - удаление следов прошлых запусков <br />
