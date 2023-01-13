@@ -17,8 +17,9 @@ public class TestBase {
     public static void testBaseUrlConfiguration() {
         Configuration.pageLoadTimeout = 50000;
         Configuration.baseUrl = System.getProperty("baseUrl","https://rit-it.com");
-        //Configuration.browserSize = System.getProperty("resolution", "1920x1080");
+        Configuration.browserSize = System.getProperty("resolution", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.remote = System.getProperty("selenoideURL", "https://user1:1234@selenoid.autotests.cloud") + "/wd/hub";
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

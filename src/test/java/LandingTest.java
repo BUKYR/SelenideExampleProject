@@ -5,6 +5,8 @@ import landingtestdata.LandingTestData;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import static landingtestdata.TestSource.*;
+
 
 public class LandingTest extends TestBase {
 
@@ -13,8 +15,8 @@ public class LandingTest extends TestBase {
 
     @Test
     @DisplayName("Проверка валидации email input на странице 'Блог'")
-    void emailTest() {
-        LandingTestData.openMainPage().clickOnHeaderMenuElementBlog().setEmailValue().checkValidation();
+    void emailInputTest() {
+        LandingTestData.openMainPage().clickOnHeaderMenuElement(mediaText, blogText).setEmailValue().checkValidation();
     }
 
     @ParameterizedTest
@@ -23,7 +25,7 @@ public class LandingTest extends TestBase {
             ".soc-insta, https://vk.com/public217753469",
             ".soc-tw, https://consent.youtube.com"
     })
-    @DisplayName("Проверка перехода на VK.COM по кнопке в хедере")
+    @DisplayName("Проверка перехода на VK.COM по кнопке в хедер меню")
     void socialNetworkTest(String socialPin, String socialUrl) {
         LandingTestData.openMainPage().clickOnSocialNetwork(socialPin).checkSocialNetworkURL(socialUrl);
     }
@@ -31,7 +33,7 @@ public class LandingTest extends TestBase {
     @Test
     @DisplayName("Проверка раздела 'Проекты' в хедер меню")
     void listOfProjectTest() {
-        LandingTestData.openMainPage().clickOnHeaderMenuElementProject().checkTitleOfHeaderMenuElement();
+        LandingTestData.openMainPage().clickOnHeaderMenuElement(companyRUText, projectsText).checkTitleOfHeaderMenuElement();
     }
 
 

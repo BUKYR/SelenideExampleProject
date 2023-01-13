@@ -24,19 +24,13 @@ public class LandingTestData {
         return this;
     }
 
-    @Step("")
-    public LandingTestData clickOnHeaderMenuElementProject() {
-        $(headerWrapper).$(byText(companyRUText)).hover();
-        $(byText(projectsText)).click();
+    @Step("Выбор элемента в хедере")
+    public LandingTestData clickOnHeaderMenuElement(String...items) {
+        for (String item: items) {
+            $(headerWrapper).$(byText(item)).hover();
+            $(byText(item)).click();
+        }
         return this;
-    }
-
-
-    @Step("Выбор элемента хедере")
-    public LandingTestData clickOnHeaderMenuElementBlog() {
-            $(headerWrapper).$(byText(mediaText)).hover();
-            $(byText(blogText)).click();
-          return this;
     }
 
     @Step("Подстановка неверного значения")
