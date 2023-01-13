@@ -25,8 +25,7 @@ public class TestSource {
 
     public static String // text
         projectsText = "Проекты",
-        companyRUText = "Компания",
-        companyENText = "Company",
+        companyText = "Компания",
         contactsText = "Контакты",
         mediaText = "Медиа",
         blogText = "Блог",

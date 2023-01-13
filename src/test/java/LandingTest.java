@@ -15,8 +15,19 @@ public class LandingTest extends TestBase {
 
     @Test
     @DisplayName("Проверка валидации email input на странице 'Блог'")
-    void emailInputTest() {
-        LandingTestData.openMainPage().clickOnHeaderMenuElement(mediaText, blogText).setEmailValue().checkValidation();
+    void emailInputValidationTest() {
+        LandingTestData.openMainPage()
+                .clickOnHeaderMenuElement(mediaText, blogText)
+                .setEmailValue()
+                .checkValidation();
+    }
+
+    @Test
+    @DisplayName("Проверка раздела 'Проекты' в хедер меню и названия раздела")
+    void pageOfProjectTitleTest() {
+        LandingTestData.openMainPage()
+                .clickOnHeaderMenuElement(companyText, projectsText)
+                .checkTitleOfPage();
     }
 
     @ParameterizedTest
@@ -27,20 +38,17 @@ public class LandingTest extends TestBase {
     })
     @DisplayName("Проверка перехода на VK.COM по кнопке в хедер меню")
     void socialNetworkTest(String socialPin, String socialUrl) {
-        LandingTestData.openMainPage().clickOnSocialNetwork(socialPin).checkSocialNetworkURL(socialUrl);
+        LandingTestData.openMainPage()
+                .clickOnSocialNetwork(socialPin)
+                .checkSocialNetworkURL(socialUrl);
     }
 
-    @Test
-    @DisplayName("Проверка раздела 'Проекты' в хедер меню")
-    void listOfProjectTest() {
-        LandingTestData.openMainPage().clickOnHeaderMenuElement(companyRUText, projectsText).checkTitleOfHeaderMenuElement();
-    }
-
-
-    @Test
+       @Test
     @DisplayName("Проверка гамбергер-меню")
-    void hamburgBoxMenuTest() {
-        LandingTestData.openMainPage().clickOnHamburgerMenu().checkContactsInHamburger();
+    void hamburgerBoxMenuTest() {
+        LandingTestData.openMainPage()
+                .clickOnHamburgerMenu()
+                .checkContactsInHamburger();
     }
 
     @ParameterizedTest
@@ -49,7 +57,8 @@ public class LandingTest extends TestBase {
             ".lang-item-ru, Компания"
     })
     @DisplayName("Проверка локализации")
-    void testLocale(String localItem, String companyText) {
-        LandingTestData.openMainPage().checkPageLocalization(localItem, companyText);
+    void testOfLocalizationChange(String localItem, String companyText) {
+        LandingTestData.openMainPage()
+                .checkPageLocalization(localItem, companyText);
     }
 }

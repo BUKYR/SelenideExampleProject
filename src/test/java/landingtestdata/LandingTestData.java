@@ -19,34 +19,33 @@ public class LandingTestData {
 
     @Step("Открытие главной страницы")
     public LandingTestData openMainPage() {
-        Selenide.open("/en");
-        $(".lang-item-ru").click();
+                    Selenide.open("/en");
+                    $(".lang-item-ru").click();
         return this;
     }
 
     @Step("Выбор элемента в хедере")
-    public LandingTestData clickOnHeaderMenuElement(String...items) {
-        for (String item: items) {
-            $(headerWrapper).$(byText(item)).hover();
-            $(byText(item)).click();
-        }
+    public LandingTestData clickOnHeaderMenuElement(String menuItem, String subMenuItem) {
+                    $(headerWrapper).$(byText(menuItem)).hover();
+                    $(byText(subMenuItem)).click();
+
         return this;
     }
 
     @Step("Подстановка неверного значения")
     public LandingTestData setEmailValue() {
-        $(s2email).setValue(incorrectMail);
+                    $(s2email).setValue(incorrectMail);
         return this;
     }
 
     @Step("Проверка валидации поля")
     public LandingTestData checkValidation() {
-    $(subscribeButton).click();
-    $(s2error).shouldHave(text(errorText));
+                    $(subscribeButton).click();
+                    $(s2error).shouldHave(text(errorText));
         return this;
     }
 
-    @Step("Клик на значек социальной сети")
+    @Step("Клик на значок социальной сети")
     public LandingTestData clickOnSocialNetwork(String socialPin) {
                      $(headerWrapper).$(topBar).$(socialPin).click();
                      return this;
@@ -60,26 +59,27 @@ public class LandingTestData {
     }
 
     @Step("Проверка заголовка страницы")
-    public LandingTestData checkTitleOfHeaderMenuElement() {
+    public LandingTestData checkTitleOfPage() {
                     $(wrapper).$(content).shouldHave(text(projectsText));
         return this;
     }
     @Step("Открытие меню")
     public  LandingTestData clickOnHamburgerMenu() {
-        $(humburgBox).click();
+                    $(humburgBox).click();
         return this;
     }
     @Step("Проверка информации в меню")
     public  LandingTestData checkContactsInHamburger() {
-        $(popupWrapper).$(colInner).$(bigMenuCategory, 2).shouldHave(text(numberText), text(contactsText), text(emailText));
+                 $(popupWrapper).$(colInner).$(bigMenuCategory, 2).
+                        shouldHave(text(numberText), text(contactsText), text(emailText));
 
         return this;
     }
 
     @Step("Проверка смены локализации")
     public LandingTestData checkPageLocalization(String localItem, String companyText) {
-        $(localItem).click();
-        $(masthead).$(byText(companyText)).shouldBe(Condition.visible);
+                 $(localItem).click();
+                 $(masthead).$(byText(companyText)).shouldBe(Condition.visible);
        return this;
 
 }
