@@ -24,8 +24,16 @@ public class LandingTestData {
         return this;
     }
 
+    @Step("")
+    public LandingTestData clickOnHeaderMenuElementProject() {
+        $(headerWrapper).$(byText(companyRUText)).hover();
+        $(byText(projectsText)).click();
+        return this;
+    }
+
+
     @Step("Выбор элемента хедере")
-    public LandingTestData choiсeHeadersItem() {
+    public LandingTestData clickOnHeaderMenuElementBlog() {
             $(headerWrapper).$(byText(mediaText)).hover();
             $(byText(blogText)).click();
           return this;
@@ -56,12 +64,7 @@ public class LandingTestData {
 
         return this;
     }
-    @Step("") !!!!!!!!!!!!
-    public LandingTestData clickOnHeaderMenuElement() {
-                    $(headerWrapper).$(byText(companyRUText)).hover();
-                    $(byText(projectsText)).click();
-        return this;
-    }
+
     @Step("Проверка заголовка страницы")
     public LandingTestData checkTitleOfHeaderMenuElement() {
                     $(wrapper).$(content).shouldHave(text(projectsText));

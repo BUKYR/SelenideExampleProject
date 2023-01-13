@@ -14,7 +14,7 @@ public class LandingTest extends TestBase {
     @Test
     @DisplayName("Проверка валидации email input на странице 'Блог'")
     void emailTest() {
-        LandingTestData.openMainPage().choiсeHeadersItem().setEmailValue().checkValidation();
+        LandingTestData.openMainPage().clickOnHeaderMenuElementBlog().setEmailValue().checkValidation();
     }
 
     @ParameterizedTest
@@ -31,7 +31,7 @@ public class LandingTest extends TestBase {
     @Test
     @DisplayName("Проверка раздела 'Проекты' в хедер меню")
     void listOfProjectTest() {
-        LandingTestData.openMainPage().clickOnHeaderMenuElement().checkTitleOfHeaderMenuElement();
+        LandingTestData.openMainPage().clickOnHeaderMenuElementProject().checkTitleOfHeaderMenuElement();
     }
 
 

@@ -71,7 +71,7 @@ gradle
 clean 
 test
 -D"baseUrl=https://rit-it.com
--D"selenoideURL=https://user1:1234@selenoid.autotests.cloud" 
+-D"selenoideURL=https://selenoid.autotests.cloud" 
 -D"resolution=1920x1080" 
 -D"browser=chrome" 
 -D"browserVersion=100.0" 
