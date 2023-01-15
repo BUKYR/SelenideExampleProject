@@ -9,9 +9,9 @@
 
 0. [Технологии](#tech)
 1. [Список проверок](#listOFTest)
-2. [Запуск тестов](#testLaunch)
-    1. [Локальный](#localLaunch)
-    2. [Удаленный (Jenkins + Selenoide)](#remoteLaunch)
+2. [Запуск тестов и ветки](#testLaunch)
+   1. [Запуск в Jenkins](#jenkinsLaunch)
+   2. [Запуск тестов с использованием .properties](#ownerLaunch)
 3. [Отчетность](#report)
    1. [Allure](#allureReport)
    2. [Telegram](#telegramReport)
@@ -42,65 +42,85 @@
 
 - [x] Проверка смены локализации (Ru, En) <br />
 - [x] Проверка валидации input полей на примере поля e-mail <br />
-- [x] Проверка ссылок на социальные сети на примере VK <br />
+- [x] Проверка ссылок на социальные сети<br />
 - [x] Проверка Hamburger Menu <br />
 - [x] Проверка Header Menu <br />
 
-<h3 id="testLaunch">Запуск тестов</h3>
+<h3 id="testLaunch">Запуск тестов и ветки:</h3>
 <hr />
 
-<h4 id="localLaunch">Локальный запуск</h4>
+<h4 id="jenkinsLaunch">Запуск в Jenkins</h4>
 
-Запуск тестов:
-```bash
-gradle clean test
-```
-Получение отчета:
-```bash
-gradle allureServe
-```
-<h4 id="remoteLaunch">Удаленный запуск из Jenkins на Selenoide </h4>
+Ветка <code>master</code> настроена на запуск в Jenkins
 
 >Параметризированная джоба в Jenkins со статистикой сборок
 >
 <img src="images/screens/jenkins.png"/>
+<img src="images/screens/jenkinsparam.png"/>
 
-Таска для запуска в Jenkins:
+Пример таски для запуска в Jenkins:
 ```bash
-gradle 
-clean 
+clean
 test
--D"baseUrl=https://rit-it.com
--D"selenoideURL=https://selenoid.autotests.cloud" 
--D"resolution=1920x1080" 
--D"browser=chrome" 
--D"browserVersion=100.0" 
+-D"baseUrl=${BASED_URL}"
+-D"selenoideURL=${SELENOIDE_URL}"
+-D"resolution=${RESOLUTION}"
+-D"browser=${BROWSER}"
+-D"browserVersion=${BROWSER_VERSION}"
 ```
 Расшифровка
-><code>clean</code> - удаление следов прошлых запусков <br />
 ><code>test</code> - запуск всех тестов<br />
 ><code>${BASED_URL}"</code> - задает URL стенда<br />
-><code>${SELENOIDE_URL}"</code> - задает URL селенойда <br />
+><code>${SELENOIDE_URL}"</code> - задает URL селеноида <br />
 ><code>${RESOLUTION}"</code>  - задает разрешение браузера <br />
 ><code>${BROWSER}"</code> - выбор браузер <br />
-><code>${BROWSER_VERSION}"</code> - выбор версии браузера <br /> 
+><code>${BROWSER_VERSION}"</code> - выбор версии браузера <br />
 
+
+<h4 id="ownerLaunch">Запуск тестов с использованием .properties</h4>
+
+Ветка <code>owner</code> использует одноменную библиотеку для хранения конфигураци запуска тестов, в т.ч. секретных данных. <br />
+
+Пример файла local.properties:
+```bash
+baseUrl = https://rit-it.com
+resolution = 1920x1080
+browser = chrome
+browserVersion = 100.0
+
+isRemote=false
+```
+
+Локальный запуск тестов:
+```bash
+gradle clean test -Denv=local
+```
+
+Удаленный запуск тестов на Selenoide
+```bash
+gradle clean test -Denv=remote
+``` 
 
 <h3 id="report">Отчетность</h3>
 <hr />
-
 <h4 id="allureReport">Allure</h4>
 
+Команда для формирования отчета вне Jenkins
+```bash
+gradle allureServe
+```
+
+
 >Аллюр отчет с подробными аннотациями шагов теста и вложениями
-> 
+>
 <img src="images/screens/allure.png"/>
 
->К каждому прогону записывается видео 
+>К каждому прогону записывается видео
 >
 <img src="images/screens/testGif.gif"/>
 <h4 id="telegramReport">Telegram</h4>
 
->Уведомление в Telegram с помощью Telegram API о завершенных сборках с сылкой на Allure-отчет
+>Уведомления в Telegram о завершенных сборках с сылкой на Allure-отчет из Jenkins
 >
 <img src="images/screens/telegram.png"/>
 
