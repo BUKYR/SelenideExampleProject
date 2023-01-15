@@ -1,35 +1,21 @@
 package testdata;
 
 import config.Attach;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.RemoteConfig;
+import config.ProjectLaunchConfig;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 public class TestBase {
 
-    static RemoteConfig cfg =  ConfigFactory.create(RemoteConfig.class, System.getProperties());
-
     @BeforeAll
-    public static void testBaseUrlConfiguration() {
-        Configuration.pageLoadTimeout = 50000;
-        Configuration.baseUrl = cfg.getBaseUrl();
-        Configuration.browserSize = cfg.getResolution();
-        Configuration.browser = cfg.getBrowser();
-        Configuration.remote = cfg.getSelenoideUrl();
-        Configuration.browserVersion = cfg.getBrowserVersion();
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+    public static void setTestConfiguration() {
+        ProjectLaunchConfig projectLaunchConfig = new ProjectLaunchConfig();
+        projectLaunchConfig.launchConfig();
     }
 
     @BeforeEach

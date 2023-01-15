@@ -15,17 +15,17 @@ import static com.codeborne.selenide.WebDriverConditions.urlStartingWith;
 import static testdata.TestSource.*;
 
 
-public class LandingTestData {
+public class TestData {
 
     @Step("Открытие главной страницы")
-    public LandingTestData openMainPage() {
+    public TestData openMainPage() {
                     Selenide.open("/en");
                     $(".lang-item-ru").click();
         return this;
     }
 
     @Step("Выбор элемента в хедере")
-    public LandingTestData clickOnHeaderMenuElement(String menuItem, String subMenuItem) {
+    public TestData clickOnHeaderMenuElement(String menuItem, String subMenuItem) {
                     $(headerWrapper).$(byText(menuItem)).hover();
                     $(byText(subMenuItem)).click();
 
@@ -33,25 +33,25 @@ public class LandingTestData {
     }
 
     @Step("Подстановка неверного значения")
-    public LandingTestData setEmailValue() {
+    public TestData setEmailValue() {
                     $(s2email).setValue(incorrectMail);
         return this;
     }
 
     @Step("Проверка валидации поля")
-    public LandingTestData checkValidation() {
+    public TestData checkValidation() {
                     $(subscribeButton).click();
                     $(s2error).shouldHave(text(errorText));
         return this;
     }
 
     @Step("Клик на значок социальной сети")
-    public LandingTestData clickOnSocialNetwork(String socialPin) {
+    public TestData clickOnSocialNetwork(String socialPin) {
                      $(headerWrapper).$(topBar).$(socialPin).click();
                      return this;
     }
     @Step("Проверка перехода на страницу социальной сети")
-    public LandingTestData checkSocialNetworkURL(String socialUrl) {
+    public TestData checkSocialNetworkURL(String socialUrl) {
                     switchTo().window(1);
                     webdriver().shouldHave(urlStartingWith(socialUrl));
 
@@ -59,17 +59,17 @@ public class LandingTestData {
     }
 
     @Step("Проверка заголовка страницы")
-    public LandingTestData checkTitleOfPage() {
+    public TestData checkTitleOfPage() {
                     $(wrapper).$(content).shouldHave(text(projectsText));
         return this;
     }
     @Step("Открытие гамбургер меню")
-    public  LandingTestData clickOnHamburgerMenu() {
+    public TestData clickOnHamburgerMenu() {
                     $(humburgBox).click();
         return this;
     }
     @Step("Проверка информации в меню")
-    public  LandingTestData checkContactsInHamburger() {
+    public TestData checkContactsInHamburger() {
                  $(popupWrapper).$(colInner).$(bigMenuCategory, 2).
                         shouldHave(text(numberText), text(contactsText), text(emailText));
 
@@ -77,7 +77,7 @@ public class LandingTestData {
     }
 
     @Step("Проверка смены локализации")
-    public LandingTestData checkPageLocalization(String localItem, String companyText) {
+    public TestData checkPageLocalization(String localItem, String companyText) {
                  $(localItem).click();
                  $(masthead).$(byText(companyText)).shouldBe(Condition.visible);
        return this;

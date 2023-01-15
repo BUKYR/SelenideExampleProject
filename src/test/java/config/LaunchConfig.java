@@ -6,7 +6,8 @@ import org.aeonbits.owner.Config;
         "classpath:${env}.properties"
 })
 
-public interface RemoteConfig extends Config {
+public interface LaunchConfig extends Config {
+
 
     @Key("baseUrl")
     @DefaultValue("https://rit-it.com")
@@ -27,6 +28,6 @@ public interface RemoteConfig extends Config {
     @DefaultValue("100.0")
     String getBrowserVersion();
 
-
-
+    @Key("isRemote")
+    boolean isRemote();
 }

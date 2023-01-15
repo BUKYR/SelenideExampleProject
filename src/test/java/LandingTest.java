@@ -1,7 +1,7 @@
 import testdata.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import testdata.LandingTestData;
+import testdata.TestData;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -10,13 +10,13 @@ import static testdata.TestSource.*;
 
 public class LandingTest extends TestBase {
 
-    LandingTestData LandingTestData = new LandingTestData();
+    TestData TestData = new TestData();
 
 
     @Test
     @DisplayName("Проверка валидации email input на странице 'Блог'")
     void emailInputValidationTest() {
-        LandingTestData.openMainPage()
+        TestData.openMainPage()
                 .clickOnHeaderMenuElement(mediaText, blogText)
                 .setEmailValue()
                 .checkValidation();
@@ -25,7 +25,7 @@ public class LandingTest extends TestBase {
     @Test
     @DisplayName("Проверка раздела 'Проекты' в хедер меню и названия раздела")
     void pageOfProjectTitleTest() {
-        LandingTestData.openMainPage()
+        TestData.openMainPage()
                 .clickOnHeaderMenuElement(companyText, projectsText)
                 .checkTitleOfPage();
     }
@@ -38,7 +38,7 @@ public class LandingTest extends TestBase {
     })
     @DisplayName("Проверка перехода на VK.COM по кнопке в хедер меню")
     void socialNetworkTest(String socialPin, String socialUrl) {
-        LandingTestData.openMainPage()
+        TestData.openMainPage()
                 .clickOnSocialNetwork(socialPin)
                 .checkSocialNetworkURL(socialUrl);
     }
@@ -46,7 +46,7 @@ public class LandingTest extends TestBase {
        @Test
     @DisplayName("Проверка гамбергер-меню")
     void hamburgerBoxMenuTest() {
-        LandingTestData.openMainPage()
+        TestData.openMainPage()
                 .clickOnHamburgerMenu()
                 .checkContactsInHamburger();
     }
@@ -58,7 +58,7 @@ public class LandingTest extends TestBase {
     })
     @DisplayName("Проверка мены локализации")
     void testOfLocalizationChange(String localItem, String companyText) {
-        LandingTestData.openMainPage()
+        TestData.openMainPage()
                 .checkPageLocalization(localItem, companyText);
     }
 }
