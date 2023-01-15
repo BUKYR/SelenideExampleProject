@@ -1,11 +1,11 @@
-import landingtestdata.TestBase;
+import testdata.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import landingtestdata.LandingTestData;
+import testdata.LandingTestData;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static landingtestdata.TestSource.*;
+import static testdata.TestSource.*;
 
 
 public class LandingTest extends TestBase {
@@ -33,7 +33,7 @@ public class LandingTest extends TestBase {
     @ParameterizedTest
     @CsvSource(value =  {
             ".soc-vk, https://www.linkedin.com",
-            ".soc-insta, https://vk.com/public217753469",
+            ".soc-insta, https://vk.com/public217753469", // это ошибка фронта
             ".soc-tw, https://consent.youtube.com"
     })
     @DisplayName("Проверка перехода на VK.COM по кнопке в хедер меню")
@@ -56,7 +56,7 @@ public class LandingTest extends TestBase {
             ".lang-item-en, Company",
             ".lang-item-ru, Компания"
     })
-    @DisplayName("Проверка локализации")
+    @DisplayName("Проверка мены локализации")
     void testOfLocalizationChange(String localItem, String companyText) {
         LandingTestData.openMainPage()
                 .checkPageLocalization(localItem, companyText);

@@ -1,4 +1,4 @@
-package landingtestdata;
+package testdata;
 
 
 import com.codeborne.selenide.Condition;
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlStartingWith;
-import static landingtestdata.TestSource.*;
+import static testdata.TestSource.*;
 
 
 public class LandingTestData {
@@ -63,7 +63,7 @@ public class LandingTestData {
                     $(wrapper).$(content).shouldHave(text(projectsText));
         return this;
     }
-    @Step("Открытие меню")
+    @Step("Открытие гамбургер меню")
     public  LandingTestData clickOnHamburgerMenu() {
                     $(humburgBox).click();
         return this;
